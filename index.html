@@ -1,0 +1,2513 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Bestie 💗</title>
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    background:#fff0f7;
+    color:#5c3047;
+    overflow:hidden;
+}
+
+.screen{
+    display:none;
+
+    height:100vh;
+    width:100%;
+
+    padding:30px 20px;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at 10% 20%,#ffd2e5,transparent 25%),
+    radial-gradient(circle at 90% 80%,#ddd5ff,transparent 25%),
+    linear-gradient(135deg,#fff7fb,#fff,#f7f3ff);
+}
+
+.screen.active{
+    display:flex;
+    animation:appear .6s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+h1{
+    font-size:clamp(40px,9vw,80px);
+    color:#ff4f91;
+    margin:15px;
+}
+
+h2{
+    font-size:clamp(28px,6vw,55px);
+    color:#e83f83;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.7;
+    max-width:700px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button{
+
+    border:0;
+
+    padding:15px 28px;
+
+    border-radius:50px;
+
+    margin:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff4f91,
+        #ff9ec4
+    );
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 20px
+    rgba(255,79,145,.25);
+
+    transition:.25s;
+}
+
+button:hover{
+
+    transform:
+    scale(1.08)
+    rotate(-1deg);
+
+}
+
+button:active{
+
+    transform:scale(.94);
+
+}
+
+
+/* =====================================================
+   FLOATING DECORATIONS
+===================================================== */
+
+.float{
+
+    position:absolute;
+
+    font-size:35px;
+
+    animation:
+    float 4s ease-in-out infinite;
+
+    pointer-events:none;
+
+}
+
+.f1{
+    left:6%;
+    top:10%;
+}
+
+.f2{
+    right:7%;
+    top:18%;
+    animation-delay:1s;
+}
+
+.f3{
+    left:10%;
+    bottom:15%;
+    animation-delay:2s;
+}
+
+.f4{
+    right:8%;
+    bottom:12%;
+    animation-delay:.5s;
+}
+
+@keyframes float{
+
+    50%{
+        transform:
+        translateY(-25px)
+        rotate(8deg);
+    }
+
+}
+
+
+/* =====================================================
+   BIG HEART
+===================================================== */
+
+.bigHeart{
+
+    font-size:100px;
+
+    animation:
+    beat 1.3s infinite;
+
+}
+
+@keyframes beat{
+
+    50%{
+        transform:scale(1.2);
+    }
+
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.cards{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:18px;
+
+    max-width:1000px;
+
+}
+
+.card{
+
+    width:220px;
+
+    min-height:150px;
+
+    padding:22px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.8);
+
+    box-shadow:
+    0 10px 30px
+    rgba(100,40,70,.12);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:
+    translateY(-10px)
+    rotate(2deg);
+
+}
+
+.card .emoji{
+
+    font-size:45px;
+
+}
+
+.card h3{
+
+    color:#dc3978;
+
+    margin:10px 0;
+
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz{
+
+    width:min(650px,95%);
+
+    padding:30px;
+
+    background:white;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(100,40,70,.15);
+
+}
+
+.quiz button{
+
+    display:block;
+
+    width:85%;
+
+    margin:12px auto;
+
+}
+
+#quizResult{
+
+    font-weight:bold;
+
+    color:#d72d6e;
+
+    min-height:35px;
+
+}
+
+
+/* =====================================================
+   ROAST
+===================================================== */
+
+.roastBox{
+
+    width:min(700px,95%);
+
+    min-height:230px;
+
+    background:#fff;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(100,40,70,.15);
+
+}
+
+#roastText{
+
+    font-size:23px;
+
+    margin:25px;
+
+    color:#c52c69;
+
+    min-height:70px;
+
+}
+
+
+/* =====================================================
+   HEART GAME
+===================================================== */
+
+.game{
+
+    width:min(800px,95%);
+
+    height:400px;
+
+    border:
+    3px dashed #ff8bb6;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.7);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.gameHeart{
+
+    position:absolute;
+
+    font-size:38px;
+
+    cursor:pointer;
+
+    animation:
+    fall 3s linear;
+
+}
+
+@keyframes fall{
+
+    from{
+        top:-50px;
+    }
+
+    to{
+        top:420px;
+    }
+
+}
+
+
+/* =====================================================
+   GIFTS
+===================================================== */
+
+.gifts{
+
+    display:flex;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.gift{
+
+    font-size:90px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.gift:hover{
+
+    transform:
+    scale(1.2)
+    rotate(-8deg);
+
+}
+
+#giftMessage{
+
+    display:none;
+
+    margin-top:25px;
+
+    animation:
+    pop .5s ease;
+
+}
+
+@keyframes pop{
+
+    from{
+        transform:scale(.4);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+
+/* =====================================================
+   MUSIC SCREEN
+===================================================== */
+
+.musicScreen{
+
+    /* MUSIC PAGE ONLY: allow the full song card to scroll */
+    overflow-y:auto;
+    overflow-x:hidden;
+    justify-content:flex-start;
+    padding-top:40px;
+    padding-bottom:70px;
+
+    background:
+
+    radial-gradient(
+        circle at 20% 20%,
+        #ffd5e7,
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        #dcd4ff,
+        transparent 30%
+    ),
+
+    linear-gradient(
+        135deg,
+        #fff6fb,
+        #f8f3ff
+    );
+
+}
+
+
+/* MUSIC CARD */
+
+.musicCard{
+
+    width:min(700px,95%);
+
+    padding:30px;
+
+    background:
+    rgba(255,255,255,.85);
+
+    border-radius:35px;
+
+    box-shadow:
+    0 20px 60px
+    rgba(120,50,90,.18);
+
+    backdrop-filter:blur(10px);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* ALBUM */
+
+.album{
+
+    width:140px;
+    height:140px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:70px;
+
+    border-radius:35px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ff80ad,
+        #d9b7ff
+    );
+
+    box-shadow:
+
+    0 15px 35px
+    rgba(220,70,130,.25);
+
+    animation:
+
+    albumFloat
+    2.5s
+    ease-in-out
+    infinite;
+
+}
+
+@keyframes albumFloat{
+
+    50%{
+
+        transform:
+        translateY(-10px)
+        rotate(3deg);
+
+    }
+
+}
+
+
+.songName{
+
+    color:#a94372;
+
+    margin-top:-10px;
+
+}
+
+
+/* MUSIC BUTTONS */
+
+.musicControls{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:15px;
+
+}
+
+.musicControls button{
+
+    margin:5px;
+
+}
+
+
+/* PROGRESS */
+
+#progress{
+
+    width:80%;
+
+    accent-color:#ff5796;
+
+    cursor:pointer;
+
+    margin-top:10px;
+
+}
+
+
+.time{
+
+    font-size:13px;
+
+    color:#9a6680;
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+   BIG ANIMATED LYRICS
+===================================================== */
+
+.lyricsBox{
+
+    margin-top:20px;
+
+    height:190px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,220,235,.55),
+        rgba(230,220,255,.55)
+    );
+
+    position:relative;
+
+}
+
+
+/* Each lyric */
+
+.lyric{
+
+    position:absolute;
+
+    width:90%;
+
+    opacity:0;
+
+    transform:
+    translateY(30px)
+    scale(.75);
+
+    font-size:
+    clamp(20px,4vw,32px);
+
+    font-weight:bold;
+
+    color:#d93a78;
+
+    line-height:1.4;
+
+    transition:
+
+    opacity .5s ease,
+    transform .5s ease;
+
+}
+
+
+/* Active lyric */
+
+.lyric.activeLyric{
+
+    opacity:1;
+
+    transform:
+    translateY(0)
+    scale(1);
+
+    animation:
+    lyricPop .7s ease;
+
+}
+
+
+/* lyric animation */
+
+@keyframes lyricPop{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(40px)
+        scale(.65)
+        rotate(-3deg);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+        translateY(-5px)
+        scale(1.08)
+        rotate(1deg);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1)
+        rotate(0);
+
+    }
+
+}
+
+
+/* little glowing dots */
+
+.lyricsBox::before{
+
+    content:"✨";
+
+    position:absolute;
+
+    left:10%;
+
+    top:20%;
+
+    font-size:25px;
+
+    animation:
+    sparkle 2s infinite;
+
+}
+
+.lyricsBox::after{
+
+    content:"💗";
+
+    position:absolute;
+
+    right:10%;
+
+    bottom:20%;
+
+    font-size:25px;
+
+    animation:
+    sparkle 2s infinite;
+
+    animation-delay:.5s;
+
+}
+
+@keyframes sparkle{
+
+    50%{
+
+        transform:
+        scale(1.5)
+        rotate(20deg);
+
+        opacity:.5;
+
+    }
+
+}
+
+
+.smallText{
+
+    margin-top:18px;
+
+    font-size:14px;
+
+    color:#a66b87;
+
+}
+
+
+/* MUSIC DECORATIONS */
+
+.musicDecor{
+
+    position:absolute;
+
+    font-size:45px;
+
+    animation:
+    musicFloat
+    4s
+    ease-in-out
+    infinite;
+
+    pointer-events:none;
+
+}
+
+.musicDecor:nth-child(1){
+
+    left:8%;
+    top:18%;
+
+}
+
+.decor2{
+
+    right:8%;
+    top:20%;
+
+    animation-delay:.7s;
+
+}
+
+.decor3{
+
+    left:10%;
+    bottom:15%;
+
+    animation-delay:1.2s;
+
+}
+
+.decor4{
+
+    right:10%;
+    bottom:14%;
+
+    animation-delay:1.8s;
+
+}
+
+@keyframes musicFloat{
+
+    50%{
+
+        transform:
+        translateY(-25px)
+        rotate(12deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter{
+
+    width:min(750px,95%);
+
+    max-height:65vh;
+
+    overflow:auto;
+
+    text-align:left;
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 15px 40px
+    rgba(100,40,70,.15);
+
+    line-height:1.9;
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final{
+
+    background:
+
+    radial-gradient(
+        circle at center,
+        #624678,
+        #21162f 65%,
+        #100b18
+    );
+
+    color:white;
+
+}
+
+.final h1{
+
+    color:#ff9ec5;
+
+}
+
+.final h2{
+
+    color:#ffd4e5;
+
+}
+
+.final p{
+
+    color:#ffeaf3;
+
+}
+
+
+/* =====================================================
+   FALLING HEARTS
+===================================================== */
+
+.falling{
+
+    position:fixed;
+
+    top:-50px;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    animation:
+    fallHeart
+    linear
+    forwards;
+
+}
+
+@keyframes fallHeart{
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.confetti{
+
+    position:fixed;
+
+    top:-30px;
+
+    z-index:99999;
+
+    animation:
+    confettiFall
+    3s
+    linear
+    forwards;
+
+}
+
+@keyframes confettiFall{
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    .screen{
+
+        padding:
+        25px 15px;
+
+    }
+
+    .cards{
+
+        max-height:65vh;
+
+        overflow:auto;
+
+    }
+
+    .card{
+
+        width:145px;
+
+        min-height:130px;
+
+        padding:15px;
+
+    }
+
+    .card .emoji{
+
+        font-size:35px;
+
+    }
+
+    .card p{
+
+        font-size:14px;
+
+    }
+
+    .game{
+
+        height:330px;
+
+    }
+
+    .letter{
+
+        padding:22px;
+
+        font-size:15px;
+
+    }
+
+    .musicScreen{
+
+        overflow-y:auto;
+        overflow-x:hidden;
+        justify-content:flex-start;
+        padding-top:25px;
+        padding-bottom:60px;
+
+    }
+
+    .musicCard{
+
+        padding:20px;
+
+    }
+
+    .album{
+
+        width:110px;
+        height:110px;
+
+        font-size:55px;
+
+    }
+
+    .lyricsBox{
+
+        height:170px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     1. MYSTERY
+===================================================== -->
+
+<section class="screen active" id="s1">
+
+<div class="float f1">🎀</div>
+<div class="float f2">✨</div>
+<div class="float f3">💕</div>
+<div class="float f4">🌸</div>
+
+<div class="bigHeart">
+💗
+</div>
+
+<h1>
+WAIT... 👀
+</h1>
+
+<p>
+
+Why are you here?
+
+<br><br>
+
+Actually...
+
+<b>
+DON'T ASK QUESTIONS. 😂
+</b>
+
+</p>
+
+<button onclick="next()">
+TAP AT YOUR OWN RISK 😈
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     2. BIRTHDAY REVEAL
+===================================================== -->
+
+<section class="screen" id="s2">
+
+<div class="bigHeart">
+🎁
+</div>
+
+<h1>
+HAPPY BIRTHDAY!
+</h1>
+
+<h2>
+💗
+</h2>
+
+<p>
+
+Congratulations! 🎉
+
+<br>
+
+You have officially unlocked
+another year of being absolutely amazing...
+
+<br>
+
+and slightly annoying. 😂
+
+</p>
+
+<button onclick="next()">
+Okayyy continue 👀
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     3. BESTIE TEST
+===================================================== -->
+
+<section class="screen" id="s3">
+
+<h2>
+🧠 BESTIE TEST
+</h2>
+
+<div class="quiz">
+
+<h3>
+Who is more dramatic? 😂
+</h3>
+
+<button onclick="quiz(1)">
+Obviously ME 😌
+</button>
+
+<button onclick="quiz(2)">
+Obviously YOU 🤡
+</button>
+
+<button onclick="quiz(3)">
+Both of us 💀
+</button>
+
+<p id="quizResult"></p>
+
+</div>
+
+<button onclick="next()">
+I survived 😂
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     4. ROAST
+===================================================== -->
+
+<section class="screen" id="s4">
+
+<h2>
+🚨 BESTIE ROAST ZONE 🚨
+</h2>
+
+<div class="roastBox">
+
+<p>
+
+You thought this was going to be
+emotional already?
+
+<br>
+
+HAHAHAHA NO. 😂
+
+</p>
+
+<div id="roastText">
+
+Tap the button if you dare... 👀
+
+</div>
+
+<button onclick="roast()">
+ROAST ME 😭
+</button>
+
+</div>
+
+<button onclick="next()">
+Enough bullying 😂
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     5. FRIENDSHIP
+===================================================== -->
+
+<section class="screen" id="s5">
+
+<h2>
+😂 Our Friendship In One Page
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="emoji">
+😂
+</div>
+
+<h3>
+Laughing
+</h3>
+
+<p>
+We laugh at things that aren't even funny.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="emoji">
+🤡
+</div>
+
+<h3>
+Chaos
+</h3>
+
+<p>
+Normal conversations?
+We don't know her.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="emoji">
+🤫
+</div>
+
+<h3>
+Secrets
+</h3>
+
+<p>
+What happens between us stays between us.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="emoji">
+🫶
+</div>
+
+<h3>
+Always
+</h3>
+
+<p>
+No matter what happens,
+I'm here.
+</p>
+
+</div>
+
+</div>
+
+<button onclick="next()">
+Okay that's actually cute 🥹
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     6. HEART GAME
+===================================================== -->
+
+<section class="screen" id="s6">
+
+<h2>
+🎮 CATCH THE HEARTS
+</h2>
+
+<p>
+
+You have 10 seconds.
+
+<br>
+
+Catch as many hearts as possible! 💗
+
+</p>
+
+<h3>
+
+Score:
+<span id="score">
+0
+</span>
+
+</h3>
+
+<div class="game" id="game">
+</div>
+
+<button onclick="startGame()">
+START GAME 🎮
+</button>
+
+<button onclick="next()">
+I'm tired 😂
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     7. MYSTERY GIFTS
+===================================================== -->
+
+<section class="screen" id="s7">
+
+<h2>
+🎁 PICK ONE
+</h2>
+
+<p>
+One of these contains a secret message...
+👀
+</p>
+
+<div class="gifts">
+
+<div class="gift" onclick="gift()">
+🎁
+</div>
+
+<div class="gift" onclick="gift()">
+🎁
+</div>
+
+<div class="gift" onclick="gift()">
+🎁
+</div>
+
+</div>
+
+<div id="giftMessage">
+
+<h2>
+YOU FOUND IT! 🥹💗
+</h2>
+
+<p>
+
+Your actual gift is...
+
+<br><br>
+
+<b>
+ME. 😌
+</b>
+
+<br><br>
+
+Unfortunately,
+no returns or exchanges. 😂
+
+</p>
+
+</div>
+
+<button onclick="next()">
+Continue 🎀
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     8. MUSIC + LYRICS
+===================================================== -->
+
+<section class="screen musicScreen" id="s8">
+
+
+<!-- DECORATIONS -->
+
+<div class="musicDecor">
+🎵
+</div>
+
+<div class="musicDecor decor2">
+💗
+</div>
+
+<div class="musicDecor decor3">
+✨
+</div>
+
+<div class="musicDecor decor4">
+🌸
+</div>
+
+
+<!-- MUSIC CARD -->
+
+<div class="musicCard">
+
+
+<div class="album">
+🎀
+</div>
+
+
+<h2>
+🎵 A Little Song For You
+</h2>
+
+
+<p class="songName">
+For My Favourite Bestie 💗
+</p>
+
+
+<!-- =================================================
+     PUT YOUR SONG FILE HERE
+================================================= -->
+
+<audio id="birthdaySong">
+
+<source
+src="song.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+<!-- CONTROLS -->
+
+<div class="musicControls">
+
+<button onclick="toggleMusic()" id="playBtn">
+
+▶️ Play
+
+</button>
+
+
+<button onclick="restartMusic()">
+
+🔄
+
+</button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<input
+type="range"
+id="progress"
+value="0"
+min="0"
+max="100"
+>
+
+
+<div class="time">
+
+<span id="currentTime">
+0:00
+</span>
+
+/
+
+<span id="duration">
+0:00
+</span>
+
+</div>
+
+
+<!-- =================================================
+     ANIMATED LYRICS
+================================================= -->
+
+<div class="lyricsBox">
+
+
+<p class="lyric">
+
+🎵 Tere liye hum bane hai
+
+</p>
+
+
+<p class="lyric">
+
+💗 Tere liye badal rahe hai
+
+</p>
+
+
+<p class="lyric">
+
+✨ Kya mohabbat ho gayi hai
+
+</p>
+
+
+<p class="lyric">
+
+🌸 Teri hi teri baatein kare....
+
+</p>
+
+
+</div>
+
+
+<p class="smallText">
+
+Made specially for you 💗
+
+</p>
+
+
+</div>
+
+
+<button onclick="next()">
+
+Okay...
+now comes the emotional part 🥹
+
+</button>
+
+
+</section>
+
+
+<!-- =====================================================
+     9. TEN REASONS
+===================================================== -->
+
+<section class="screen" id="s9">
+
+<h2>
+💗 10 REASONS I LOVE HAVING YOU AS MY BESTIE
+</h2>
+
+<div class="cards">
+
+<div class="card">
+😂
+<br><br>
+You're hilarious.
+</div>
+
+<div class="card">
+🫶
+<br><br>
+You actually care.
+</div>
+
+<div class="card">
+🤡
+<br><br>
+You're wonderfully weird.
+</div>
+
+<div class="card">
+🌸
+<br><br>
+You make ordinary days better.
+</div>
+
+<div class="card">
+✨
+<br><br>
+You have big dreams.
+</div>
+
+<div class="card">
+🥹
+<br><br>
+You understand me.
+</div>
+
+<div class="card">
+🎀
+<br><br>
+You make memories unforgettable.
+</div>
+
+<div class="card">
+🌙
+<br><br>
+You listen.
+</div>
+
+<div class="card">
+💗
+<br><br>
+You are genuinely special.
+</div>
+
+<div class="card">
+👑
+<br><br>
+You're simply YOU.
+</div>
+
+</div>
+
+<button onclick="next()">
+
+Okay now I'm getting emotional 🥹
+
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     10. EMOTIONAL LETTER
+===================================================== -->
+
+<section class="screen" id="s10">
+
+    <h2>💌 Okay... No More Jokes</h2>
+
+    <div class="letter">
+
+        <p>🎀💗 <strong>Happy Birthday to my dearest bestieee!</strong> 💗🎀</p>
+
+        <p>
+            I honestly don’t know what I would do without you 🥹
+            From our stupid conversations and endless laughs to all the
+            random drama and crazy memories, every moment with you is so special 😂💕
+        </p>
+
+        <p>
+            You’re not just my best friend, you’re such an important part of my life 🫶🏻
+        </p>
+
+        <p>
+            I hope this year brings you so much happiness, success, love,
+            laughter, and beautiful memories ✨🌸
+            I hope you achieve everything you’ve been wishing for
+            and get everything you deserve 💗
+        </p>
+
+        <p>
+            Never stop being the crazy, funny, annoying, and adorable person you are 😂🎀
+            No matter how much I roast you, annoy you, or fight with you,
+            just remember that you’re stuck with me forever 😌😂
+        </p>
+
+        <p>
+            Thank you for always being there, understanding me, making me laugh,
+            and making even normal days feel special 🥹💗
+        </p>
+
+        <p>
+            Here’s to more late-night talks, stupid jokes, random drama,
+            arguments, crazy memories, and many many more birthdays together 🎂✨
+        </p>
+
+        <p>
+            <strong>Happy Birthday once again, bestieee! 🎉💗</strong><br>
+            <strong>I love youuu so muchhh! 🫶🏻🎀✨</strong>
+        </p>
+
+    </div>
+
+    <button onclick="next()">Continue 💗</button>
+
+</section>
+
+<!-- =====================================================
+     11. FINAL
+===================================================== -->
+
+<section class="screen final" id="s11">
+
+<div class="bigHeart">
+💗
+</div>
+
+<h1>
+HEY...
+</h1>
+
+<h2>
+YOU'RE STUCK WITH ME. 😌
+</h2>
+
+<p>
+
+Through the good days.
+
+<br>
+
+Through the terrible days.
+
+<br>
+
+Through the crazy days.
+
+<br>
+
+Through every random conversation.
+
+<br><br>
+
+<b>
+BEST FRIENDS FOREVER ♾️💗
+</b>
+
+</p>
+
+<button onclick="celebrate()">
+
+🎉 CELEBRATE 🎉
+
+</button>
+
+</section>
+
+
+<script>
+
+
+/* =====================================================
+   SCREEN SYSTEM
+===================================================== */
+
+let current = 1;
+
+
+function next(){
+
+    if(current < 11){
+
+        document
+        .getElementById("s"+current)
+        .classList.remove("active");
+
+        current++;
+
+        document
+        .getElementById("s"+current)
+        .classList.add("active");
+
+    }
+
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function quiz(answer){
+
+    let result =
+    document.getElementById("quizResult");
+
+
+    if(answer === 2){
+
+        result.innerHTML =
+        "CORRECT. 😂 I knew it was you.";
+
+        confetti();
+
+    }
+
+    else if(answer === 1){
+
+        result.innerHTML =
+        "Nice try. 🤡 We both know the truth.";
+
+    }
+
+    else{
+
+        result.innerHTML =
+        "Okay fine... BOTH OF US. 💀😂";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ROAST
+===================================================== */
+
+const roasts = [
+    "🚨 Aap pagal hy!! 😂",
+    "🤡 Aapke pass toh brain b ny hy..",
+    "😂 Hamesha Drama karne aata bus..",
+    "🫠 Gussa dilate rahte..",
+    "😭 Hamesha jhoottt!!!",
+    "💀 Aap bohot bure hy!",
+    "🎀 Aap bure hy lekin...Bohot matlab hadd se zyada cute hy",
+    "👀 I could continue... but I'm trying to keep this friendship."
+];
+
+let roastIndex = 0;
+
+function roast() {
+
+    document.getElementById("roastText").innerHTML =
+        roasts[roastIndex];
+
+    roastIndex++;
+
+    if (roastIndex >= roasts.length) {
+        roastIndex = 0;
+    }
+}
+
+
+/* =====================================================
+   HEART GAME
+===================================================== */
+
+let score = 0;
+
+let playing = false;
+
+
+function startGame(){
+
+    if(playing)
+        return;
+
+
+    playing = true;
+
+    score = 0;
+
+
+    document
+    .getElementById("score")
+    .innerText = score;
+
+
+    let game =
+    document.getElementById("game");
+
+
+    game.innerHTML = "";
+
+
+    let interval =
+    setInterval(function(){
+
+
+        let heart =
+        document.createElement("div");
+
+
+        heart.className =
+        "gameHeart";
+
+
+        heart.innerHTML =
+
+        [
+            "💗",
+            "💕",
+            "💖",
+            "💘"
+        ]
+        [
+            Math.floor(
+                Math.random()*4
+            )
+        ];
+
+
+        heart.style.left =
+        Math.random()*90 + "%";
+
+
+        heart.onclick =
+        function(){
+
+
+            score++;
+
+
+            document
+            .getElementById("score")
+            .innerText = score;
+
+
+            heart.remove();
+
+
+        };
+
+
+        game.appendChild(heart);
+
+
+        setTimeout(function(){
+
+
+            if(heart.parentElement)
+                heart.remove();
+
+
+        },3000);
+
+
+    },400);
+
+
+    setTimeout(function(){
+
+
+        clearInterval(interval);
+
+
+        playing = false;
+
+
+        alert(
+
+        "🎮 TIME'S UP!\n\n" +
+
+        "You caught " +
+
+        score +
+
+        " hearts! 💗"
+
+        );
+
+
+    },10000);
+
+}
+
+
+/* =====================================================
+   GIFTS
+===================================================== */
+
+function gift(){
+
+    document
+    .getElementById("giftMessage")
+    .style.display = "block";
+
+
+    confetti();
+
+}
+
+
+/* =====================================================
+   MUSIC PLAYER
+===================================================== */
+
+const song =
+document.getElementById("birthdaySong");
+
+
+const playBtn =
+document.getElementById("playBtn");
+
+
+const progress =
+document.getElementById("progress");
+
+
+const currentTime =
+document.getElementById("currentTime");
+
+
+const duration =
+document.getElementById("duration");
+
+
+const lyricElements =
+document.querySelectorAll(".lyric");
+
+
+/* PLAY / PAUSE */
+
+function toggleMusic(){
+
+
+    if(song.paused){
+
+        song.play();
+
+        playBtn.innerHTML =
+        "⏸️ Pause";
+
+    }
+
+    else{
+
+        song.pause();
+
+        playBtn.innerHTML =
+        "▶️ Play";
+
+    }
+
+}
+
+
+/* RESTART */
+
+function restartMusic(){
+
+    song.currentTime = 0;
+
+    song.play();
+
+    playBtn.innerHTML =
+    "⏸️ Pause";
+
+}
+
+
+/* =====================================================
+   SONG LOADED
+===================================================== */
+
+song.addEventListener(
+    "loadedmetadata",
+    function(){
+
+        duration.innerText =
+        formatTime(song.duration);
+
+    }
+);
+
+
+/* =====================================================
+   SONG TIME UPDATE
+===================================================== */
+
+song.addEventListener(
+    "timeupdate",
+    function(){
+
+
+        if(song.duration){
+
+            let percent =
+
+            (
+                song.currentTime /
+                song.duration
+            ) * 100;
+
+
+            progress.value =
+            percent;
+
+        }
+
+
+        currentTime.innerText =
+
+        formatTime(
+            song.currentTime
+        );
+
+
+        updateLyrics();
+
+
+    }
+);
+
+
+/* =====================================================
+   SEEK
+===================================================== */
+
+progress.addEventListener(
+    "input",
+    function(){
+
+
+        if(song.duration){
+
+            song.currentTime =
+
+            (
+                progress.value /
+                100
+            ) * song.duration;
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FORMAT TIME
+===================================================== */
+
+function formatTime(seconds){
+
+    let min =
+    Math.floor(seconds / 60);
+
+
+    let sec =
+    Math.floor(seconds % 60);
+
+
+    if(sec < 10){
+
+        sec =
+        "0" + sec;
+
+    }
+
+
+    return min + ":" + sec;
+
+}
+
+
+/* =====================================================
+   LYRICS TIMING
+===================================================== */
+
+/*
+
+CHANGE THESE NUMBERS.
+
+They mean the number of seconds
+when each lyric should appear.
+
+Example:
+
+0  = first lyric
+5  = second lyric
+10 = third lyric
+15 = fourth lyric
+20 = fifth lyric
+25 = sixth lyric
+30 = seventh lyric
+
+*/
+
+const lyricTimes = [4, 9, 14, 20];
+
+function updateLyrics() {
+    let current = song.currentTime;
+    let active = -1;
+
+    for (let i = 0; i < lyricTimes.length; i++) {
+        if (current >= lyricTimes[i]) {
+            active = i;
+        }
+    }
+
+    lyricElements.forEach(function(lyric, index) {
+        lyric.classList.remove("activeLyric");
+
+        if (index === active) {
+            lyric.classList.add("activeLyric");
+        }
+    });
+}
+
+
+/* =====================================================
+   SONG FINISHED
+===================================================== */
+
+song.addEventListener(
+    "ended",
+    function(){
+
+
+        playBtn.innerHTML =
+        "▶️ Play";
+
+
+        confetti();
+
+
+    }
+);
+
+
+/* =====================================================
+   FALLING HEARTS
+===================================================== */
+
+function fallingHeart(){
+
+
+    let heart =
+    document.createElement("div");
+
+
+    heart.className =
+    "falling";
+
+
+    heart.innerHTML =
+
+    [
+        "💗",
+        "💕",
+        "💖",
+        "🌸",
+        "✨",
+        "🎀"
+    ]
+    [
+        Math.floor(
+            Math.random()*6
+        )
+    ];
+
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
+
+    heart.style.fontSize =
+
+    (
+        18 +
+        Math.random()*30
+    ) + "px";
+
+
+    heart.style.animationDuration =
+
+    (
+        3 +
+        Math.random()*4
+    ) + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(
+        function(){
+
+            heart.remove();
+
+        },
+        7000
+    );
+
+}
+
+
+setInterval(
+    fallingHeart,
+    500
+);
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function confetti(){
+
+
+    let things =
+
+    [
+        "🎉",
+        "💗",
+        "✨",
+        "🌸",
+        "💕",
+        "🎀",
+        "🎊"
+    ];
+
+
+    for(
+        let i=0;
+        i<60;
+        i++
+    ){
+
+
+        let piece =
+        document.createElement("div");
+
+
+        piece.className =
+        "confetti";
+
+
+        piece.innerHTML =
+
+        things[
+            Math.floor(
+                Math.random() *
+                things.length
+            )
+        ];
+
+
+        piece.style.left =
+        Math.random()*100 + "vw";
+
+
+        piece.style.fontSize =
+
+        (
+            15 +
+            Math.random()*25
+        ) + "px";
+
+
+        piece.style.animationDuration =
+
+        (
+            2 +
+            Math.random()*2
+        ) + "s";
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(
+            function(){
+
+                piece.remove();
+
+            },
+            4000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL CELEBRATION
+===================================================== */
+
+function celebrate(){
+
+
+    for(
+        let i=0;
+        i<8;
+        i++
+    ){
+
+        setTimeout(
+            function(){
+
+                confetti();
+
+            },
+            i*250
+        );
+
+    }
+
+
+    setTimeout(
+        function(){
+
+
+            alert(
+
+            "🎂 HAPPY BIRTHDAY! 💗\n\n" +
+
+            "You're officially stuck " +
+            "with me forever. 😂🫶"
+
+            );
+
+
+        },
+        1000
+    );
+
+}
+
+</script>
+
+</body>
+</html>
+```
